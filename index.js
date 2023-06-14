@@ -22,6 +22,10 @@ app.use(cors({
     // надо указать с каким доеном ему надо обмениваться куками
     // credentials: true, // разрешаем куки
     // origin: process.env.CLIENT_URL // указываем юрл фронтенда
+    credentials: true, // разрешаем куки
+    origin: process.env.CLIENT_URL, // указываем юрл фронтенда
+    // origin: ["https://jwt-authorization-client.vercel.app"],
+    exposedHeaders: '*'
 }))
 app.use(express.json());
 // что бы файла из папки static раздавать как статику в функцию static передаем путь до папки
