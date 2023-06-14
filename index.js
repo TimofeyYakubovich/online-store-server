@@ -41,8 +41,9 @@ app.use(ErrorHandling)
 
 const start = async () => {
     try {
-        await sequelize.authenticate() // authenticate устанавливает подключение к базе данных 
-        await sequelize.sync() // sync сверяет состояние бд со схемой данных
+        await sequelize.authenticate({sslMode: require}) // authenticate устанавливает подключение к базе данных 
+        await sequelize.sync({ force: true }) // sync сверяет состояние бд со схемой данных
+        console.log(sequelize)
         app.listen(PORT, () => console.log(`Server started on port ${PORT}`))
     } catch (e) {
         console.log(e)
