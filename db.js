@@ -18,8 +18,9 @@ const {Sequelize} = require('sequelize')
 // psql         "postgres://default:kExl0ZB2yUPQ@ep-raspy-tooth-964057.us-east-1.postgres.vercel-storage.com:5432/verceldb"
 // POSTGRES_URL="postgres://default:kExl0ZB2yUPQ@ep-raspy-tooth-964057-pooler.us-east-1.postgres.vercel-storage.com:5432/verceldb"
 
-module.exports = new Sequelize('postgres://default:kExl0ZB2yUPQ@ep-raspy-tooth-964057.us-east-1.postgres.vercel-storage.com:5432/verceldb', {
+// module.exports = new Sequelize('postgres://default:kExl0ZB2yUPQ@ep-raspy-tooth-964057.us-east-1.postgres.vercel-storage.com:5432/verceldb', {
 // module.exports = new Sequelize(process.env.POSTGRES_PRISMA_URL, {
+    module.exports = new Sequelize('postgres://postgresql_4lxd_user:vTscAc4OJJo4mBqL7DUSMut834vkCBvR@dpg-ci5e4idgkuvgpf8rkmrg-a.frankfurt-postgres.render.com/postgresql_4lxd', {
     dialectOptions: {
         ssl: {
             require: true,
