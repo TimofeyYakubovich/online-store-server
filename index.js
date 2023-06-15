@@ -23,8 +23,8 @@ app.use(cors({
     // credentials: true, // разрешаем куки
     // origin: process.env.CLIENT_URL // указываем юрл фронтенда
     credentials: true, // разрешаем куки
-    origin: process.env.CLIENT_URL, // указываем юрл фронтенда
-    // origin: ["https://jwt-authorization-client.vercel.app"],
+    // origin: process.env.CLIENT_URL, // указываем юрл фронтенда
+    origin: ["https://online-store-client-tau.vercel.app"],
     exposedHeaders: '*'
 }))
 app.use(express.json());
