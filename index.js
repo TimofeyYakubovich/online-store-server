@@ -23,8 +23,8 @@ app.use(cors({
     // credentials: true, // разрешаем куки
     // origin: process.env.CLIENT_URL // указываем юрл фронтенда
     credentials: true, // разрешаем куки
-    // origin: process.env.CLIENT_URL, // указываем юрл фронтенда
-    origin: ["https://online-store-client-tau.vercel.app"],
+    origin: process.env.CLIENT_URL, // указываем юрл фронтенда
+    // origin: ["https://online-store-client-tau.vercel.app"],
     exposedHeaders: '*'
 }))
 app.use(express.json());
@@ -32,7 +32,15 @@ app.use(express.json());
 // теперь все файлы в папке static можно получаь через http://localhost:5000/6bde9a46-758c-49bd-9862-2203c9a10847.jpg в браузере
 app.use(express.static(path.resolve(__dirname, 'static')));
 app.use(fileUpload({}));
-app.use('/api', router)
+app.use('/api', cors({
+    // надо указать с каким доеном ему надо обмениваться куками
+    // credentials: true, // разрешаем куки
+    // origin: process.env.CLIENT_URL // указываем юрл фронтенда
+    credentials: true, // разрешаем куки
+    origin: process.env.CLIENT_URL, // указываем юрл фронтенда
+    // origin: ["https://online-store-client-tau.vercel.app"],
+    exposedHeaders: '*'
+}), router)
 
 // когда подключаем мидлвеер для обработки ошибок он обезательно должен идти последним в цепочке мидлвееров
 // поэтому внутри него нигде не вызывается функция next() так как на нем работа прекращается
